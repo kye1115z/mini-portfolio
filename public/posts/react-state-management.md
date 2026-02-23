@@ -11,3 +11,5 @@
 ## 전역 상태 관리
 
 컴포넌트 간에 상태를 공유해야 할 때는 Context API, Redux Toolkit, Zustand 같은 도구를 사용한다.
+
+![리액트 스터디](https://hykzwbcupjbbhzqvwelj.supabase.co/storage/v1/object/public/images/react.png)

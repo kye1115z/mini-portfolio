@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import styles from "./BlogPost.module.css";
+import { supabase } from "../../api/supabase";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -15,6 +16,8 @@ const BlogPost = () => {
         if (!response.ok) throw new Error("Not found");
         const text = await response.text();
         setContent(text);
+
+        await supabase.rpc("increment_views", { post_slug: slug });
       } catch {
         setContent("");
       } finally {

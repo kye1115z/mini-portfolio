@@ -1,7 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { clearUser } from "../../store/authSlice";
+import type { RootState } from "../../store/store";
+import { authApi } from "../../api/authApi";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+
+  const handleLogout = () => {
+    authApi.logout();
+    dispatch(clearUser());
+    navigate("/");
+  };
   return (
     <header className={styles.header}>
       <div className={styles.logo}>예은이의 포트폴리오</div>
@@ -10,6 +23,14 @@ const Header = () => {
         <Link to="/skills">Skills</Link>
         <Link to="/projects">Projects</Link>
         <Link to="/blog">Blog</Link>
+        <Link to="/problems">코딩테스트</Link>
+        {isLoggedIn ? (
+          <button onClick={handleLogout} className={styles.logoutButton}>
+            로그아웃
+          </button>
+        ) : (
+          <Link to="/login">Login</Link>
+        )}
       </nav>
     </header>
   );

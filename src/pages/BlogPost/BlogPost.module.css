@@ -36,3 +36,22 @@
   line-height: 1.8;
   margin-bottom: 16px;
 }
+
+.content ol,
+.content ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+.content li {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 4px;
+}
+
+.content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
