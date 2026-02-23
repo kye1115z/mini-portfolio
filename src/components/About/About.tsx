@@ -6,7 +6,7 @@ const About = () => {
       <h2 className={styles.title}>About Me</h2>
       <div className={styles.content}>
         <div className={styles.info}>
-          <h3 className={styles.name}>홍길동</h3>
+          <h3 className={styles.name}>김예은</h3>
           <p className={styles.role}>Frontend Developer</p>
           <p className={styles.description}>
             사용자 경험을 중요하게 생각하는 프론트엔드 개발자입니다. React와
